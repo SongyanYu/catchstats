@@ -14,7 +14,7 @@
 #' stack_awap(bbox=melb, start="20130131")
 #' South-east Queensland
 #' seqld <- list(x = c(149, 154.000), y = c(-21.0000, -29.0000))
-#' seq_awap <- stack_awap(bbox=seq, start="20130131")
+#' seq_awap <- stack_awap(bbox=seqld, start="20130131")
 #' writeRaster(seq_awap, filename="seq_awap.grd", bandorder='BIL', overwrite=TRUE)
 #' vic <- list(x = c(141.0, 150.2), y = c(-34.0, -39.2))
 #' vic_awap <- stack_awap(bbox=vic, start="19900131")
