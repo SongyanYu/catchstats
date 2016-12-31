@@ -30,6 +30,7 @@
 extractRasterPoly_cl <- function(shpfile, rast, catid_col, start = 1, end = nrow(shpfile)) {
   loc.values <- vector("list", length(start:end))
   shpfile <- shpfile[start:end, ]
+  no_cores<-parallel::detectcores()-1
   cl<-parallel::makeCluster(no_cores, type="FORK")
   fits<-parallel::parLapplyLB(cl,1:length(shpfile),function(i) loc.values[[i]] <- raster::extract(rast, shpfile[i,], na.rm = T, weights = TRUE, fun = "mean", normalizeWeights = TRUE, small = TRUE))
   parallel::stopCluster(cl)
